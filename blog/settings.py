@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
-    # "accounts",
+    "accounts",
 ]
 
 MIDDLEWARE = [
@@ -113,11 +113,11 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "Asia/Seoul"
 
 USE_I18N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
@@ -137,5 +137,5 @@ REST_FRAMEWORK = {
     )
 }
 
-# # User setting
-# AUTH_USER_MODEL = "accounts.User"
+# User setting
+AUTH_USER_MODEL = "accounts.User"
