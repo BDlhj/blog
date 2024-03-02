@@ -24,10 +24,13 @@ class SigninView(ObtainAuthToken):
         user.last_login = timezone.now()
         user.save()
         
-        return Response({
-            'user_id': user.pk,
-            'token': token.key
-        })
+        return Response(
+            data={
+                'user_id': user.pk,
+                'token': token.key
+            }, 
+            status=status.HTTP_200_OK
+        )
 
 
 class SignoutView(APIView):
