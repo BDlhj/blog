@@ -17,10 +17,7 @@ import os, environ
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-env = environ.Env(
-    DEBUG=(bool, True)
-)
-
+env = environ.Env()
 environ.Env.read_env(
     env_file=os.path.join(BASE_DIR, '.env')
 )
@@ -46,6 +43,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "rest_framework",
+    # "accounts",
 ]
 
 MIDDLEWARE = [
@@ -137,3 +136,6 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.AllowAny',
     )
 }
+
+# # User setting
+# AUTH_USER_MODEL = "accounts.User"
