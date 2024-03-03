@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     "accounts",
     "posts",
     "comments",
+    "tags",
 ]
 
 MIDDLEWARE = [
