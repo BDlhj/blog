@@ -3,6 +3,6 @@ from tags.views import PostsByTagListView, CommentsByTagListView
 
 
 urlpatterns = [
-    path("<int:pk>/posts/", PostsByTagListView.as_view()),
-    path("<int:pk>/comments/", CommentsByTagListView.as_view()),
+    path("<str:pk>/posts/", PostsByTagListView.as_view()),
+    path("<str:pk>/comments/", CommentsByTagListView.as_view()),
 ]
