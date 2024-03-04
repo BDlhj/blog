@@ -5,6 +5,7 @@ from comments.models import Comment
 from comments.serializers import CommentSerializer
 from posts.models import Post
 from posts.permissions import IsAdminUserOrAuthorOrReadOnly
+from tags.models import Tag
 
 
 class CommentListView(generics.ListCreateAPIView):
@@ -43,3 +44,14 @@ class CommentDetailView(mixins.UpdateModelMixin,
 
     def perform_update(self, serializer):
         serializer.save(is_updated=True)
+
+    def perform_destroy(self, instance):
+        tags = instance.tags.all()
+
+        for tag in tags:
+            print(tag.posts.count())
+            print(tag.comments.count())
+            if tag.posts.count() + tag.comments.count() == 1:
+                tag.delete()
+
+        instance.delete()
