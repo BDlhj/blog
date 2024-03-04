@@ -141,7 +141,9 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_PERMISSION_CLASSES' : (
         'rest_framework.permissions.AllowAny',
-    )
+    ),
+    'DEFAULT_PAGINATION_CLASS': 'blog.pagination.CustomPagination',
+    'PAGE_SIZE': 20,
 }
 
 # User setting
