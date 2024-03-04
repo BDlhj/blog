@@ -49,8 +49,6 @@ class CommentDetailView(mixins.UpdateModelMixin,
         tags = instance.tags.all()
 
         for tag in tags:
-            print(tag.posts.count())
-            print(tag.comments.count())
             if tag.posts.count() + tag.comments.count() == 1:
                 tag.delete()
 
