@@ -17,10 +17,7 @@ import os, environ
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-env = environ.Env(
-    DEBUG=(bool, True)
-)
-
+env = environ.Env()
 environ.Env.read_env(
     env_file=os.path.join(BASE_DIR, '.env')
 )
@@ -46,6 +43,12 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "rest_framework",
+    "rest_framework.authtoken",
+    "accounts",
+    "posts",
+    "comments",
+    "tags",
 ]
 
 MIDDLEWARE = [
@@ -83,9 +86,13 @@ WSGI_APPLICATION = "blog.wsgi.application"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': env('NAME'),
+        'USER': env('USER'),
+        'PASSWORD': env('PASSWORD'),
+        'HOST': env('HOST'),
+        'PORT': env('PORT'),
     }
 }
 
@@ -114,11 +121,11 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "Asia/Seoul"
 
 USE_I18N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
@@ -133,7 +140,15 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # DRF setting
 REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
     'DEFAULT_PERMISSION_CLASSES' : (
         'rest_framework.permissions.AllowAny',
-    )
+    ),
+    'DEFAULT_PAGINATION_CLASS': 'blog.pagination.CustomPagination',
+    'PAGE_SIZE': 20,
 }
+
+# User setting
+AUTH_USER_MODEL = "accounts.User"
