@@ -1,3 +1,19 @@
+# 개발 및 배포 환경
+## 개발
+- Python 3.10.10
+- Django 5.0.2
+- Django RESTFramework 3.14.0
+
+## 배포
+- AWS EC2
+- AWS RDS(Postgresql)
+- gunicorn 21.2.0
+- nginx 1.18.0
+
+<br>
+<br>
+
+
 # API
 
 ## Accounts
