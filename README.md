@@ -3,7 +3,7 @@
 ## Accounts
 ### Signup
 
-POST /accounts/signup/
+POST http://43.201.183.161/accounts/signup/
 
 - Request Body
 
@@ -18,7 +18,7 @@ POST /accounts/signup/
 
 ### Signin
 
-POST /accounts/signin/
+POST http://43.201.183.161/accounts/signin/
 
 - Request Body
 
@@ -30,7 +30,7 @@ POST /accounts/signin/
 ```
 
 ### Signout
-POST /accounts/signout/
+POST http://43.201.183.161/accounts/signout/
 
 - Request Header
 
@@ -41,11 +41,11 @@ Authorization Token b8be3ea67513bd21203af5e3cd147e6dada27b06
 
 ## Posts
 ### List Posts
-GET /posts/
+GET http://43.201.183.161/posts/
 
 
 ### Create Post
-POST /posts/
+POST http://43.201.183.161/posts/
 - Request Header
 ```
 Authorization Token b8be3ea67513bd21203af5e3cd147e6dada27b06
@@ -61,11 +61,11 @@ Authorization Token b8be3ea67513bd21203af5e3cd147e6dada27b06
 ```
 
 ### Retrieve Post
-GET /posts/pk(int)/
+GET http://43.201.183.161/posts/pk(int)/
 
 
 ### Update Post
-PUT /posts/pk(int)/
+PUT http://43.201.183.161/posts/pk(int)/
 - Request Header
 ```
 Authorization Token b8be3ea67513bd21203af5e3cd147e6dada27b06
@@ -81,7 +81,7 @@ Authorization Token b8be3ea67513bd21203af5e3cd147e6dada27b06
 ```
 
 ### Partial Update Post
-PATCH /posts/pk(int)/
+PATCH http://43.201.183.161/posts/pk(int)/
 - Request Header
 ```
 Authorization Token b8be3ea67513bd21203af5e3cd147e6dada27b06
@@ -95,7 +95,7 @@ Authorization Token b8be3ea67513bd21203af5e3cd147e6dada27b06
 ```
 
 ### Delete Post
-DELETE /posts/pk(int)/
+DELETE http://43.201.183.161/posts/pk(int)/
 - Request Headers
 
 ```
@@ -104,10 +104,10 @@ Authorization Token b8be3ea67513bd21203af5e3cd147e6dada27b06
 
 ## Comments
 ### List Comments
-GET /comments/posts/post_id(int)/
+GET http://43.201.183.161/comments/posts/post_id(int)/
 
 ### Create Comment
-POST /comments/posts/post_id(int)/
+POST http://43.201.183.161/comments/posts/post_id(int)/
 - Request Headers
 
 ```
@@ -123,7 +123,7 @@ Authorization Token b8be3ea67513bd21203af5e3cd147e6dada27b06
 ```
 
 ### Update Comment
-PUT /comments/pk(int)/
+PUT http://43.201.183.161/comments/pk(int)/
 - Request Headers
 
 ```
@@ -139,7 +139,7 @@ Authorization Token b8be3ea67513bd21203af5e3cd147e6dada27b06
 ```
 
 ### Partial Update Comment
-PATCH /comments/pk(int)/
+PATCH http://43.201.183.161/comments/pk(int)/
 - Request Headers
 
 ```
@@ -154,7 +154,7 @@ Authorization Token b8be3ea67513bd21203af5e3cd147e6dada27b06
 ```
 
 ### Delete Comment
-DELETE /comments/pk(int)/
+DELETE http://43.201.183.161/comments/pk(int)/
 - Request Headers
 
 ```
@@ -163,8 +163,8 @@ Authorization Token b8be3ea67513bd21203af5e3cd147e6dada27b06
 
 ## Tags
 ### List Posts by Tag
-GET /tags/pk(str)/posts/
+GET http://43.201.183.161/tags/pk(str)/posts/
 
 
 ### List Comments by Tag
-GET /tags/pk(str)/posts/
+GET http://43.201.183.161/tags/pk(str)/posts/
