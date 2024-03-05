@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from comments.serializers import CommentSerializer
 from posts.models import Post
 from tags.serializers import TagSerializer
 from tags.models import Tag
@@ -40,6 +41,7 @@ class PostCreateSerializer(serializers.ModelSerializer):
 
 class PostDetailSerializer(serializers.ModelSerializer):
     author = serializers.PrimaryKeyRelatedField(read_only=True)
+    comment_set = CommentSerializer(many=True)
     
     class Meta:
         model = Post
