@@ -15,8 +15,9 @@ class CommentSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         tags_list = validated_data.pop("tags", [])
+        tags_list = [tag.replace(' ', '') for tag in tags_list]
         comment = Comment.objects.create(**validated_data)
-
+        
         for tag in tags_list:
             tag, created = Tag.objects.get_or_create(content=tag)
 

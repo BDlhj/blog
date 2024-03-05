@@ -23,6 +23,7 @@ class PostCreateSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         tags_list = validated_data.pop("tags", [])
+        tags_list = [tag.replace(' ', '') for tag in tags_list]
         post = Post.objects.create(**validated_data)
 
         for tag in tags_list:
