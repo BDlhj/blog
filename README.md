@@ -168,3 +168,16 @@ GET http://43.201.183.161/tags/pk(str)/posts/
 
 ### List Comments by Tag
 GET http://43.201.183.161/tags/pk(str)/posts/
+
+
+<br>
+<br>
+
+# 추가로 고민할 부분
+
+1. 태그 생성 및 삭제 로직 재고
+2. 쿼리 최적화
+3. django app 분리 기준
+4. SerializerMethodField()와 @property
+5. DRF TokenAuthentication → JWT
+6. 로직을 어떻게 분리하고 어디에서 담당할 것인가
