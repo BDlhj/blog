@@ -1,10 +1,12 @@
-from rest_framework import generics
-from tags.models import Tag
-from tags.serializers import TagPostSerializer, TagCommentSerializer
 from django.shortcuts import get_object_or_404
+from rest_framework import generics
+from comments.serializers import CommentSerializer
+from posts.serializers import PostListSerializer
+from tags.models import Tag
+
 
 class PostsByTagListView(generics.ListAPIView):
-    serializer_class = TagPostSerializer
+    serializer_class = PostListSerializer
 
     def get_queryset(self):
         content = self.kwargs["pk"]
@@ -13,7 +15,7 @@ class PostsByTagListView(generics.ListAPIView):
 
 
 class CommentsByTagListView(generics.ListAPIView):
-    serializer_class = TagCommentSerializer
+    serializer_class = CommentSerializer
 
     def get_queryset(self):
         content = self.kwargs["pk"]
